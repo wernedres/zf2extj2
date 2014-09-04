@@ -10,7 +10,7 @@ return array(
                     'port'     => '5432',
                     'user'     => 'postgres',
                     'password' => 'm2smart',
-                    'dbname'   => 'm2smart',
+                    'dbname'   => 'zf2extjs',
                 )
             )
         )

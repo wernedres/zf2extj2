@@ -1,2 +1,9 @@
 
-<p> Meu nome é :<?= $this->bobao;?></p>
+
+
+<ul>
+
+<?php foreach($this->users as $user):?>
+<li><?php echo $user->getNome(); ?></li>
+ <?php endforeach; ?>
+ </ul>

@@ -1,0 +1,29 @@
+<h3 class="alert alert-success">Usarios</h3>
+<br/>
+
+
+<table class="table table-striped">
+    <tr class="success">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+
+    <?php foreach ($this->data as $entity): ?>
+        <tr>
+            <td><?= $entity->getId() ?></td>
+            <td><?= $entity->getNome() ?></td>
+            <td><?= $entity->getEmail() ?></td>
+            <td>
+               editar
+                <td> 
+               excluir
+           </td>
+           
+        </tr>
+        
+    <?php endforeach; ?>
+
+</table>

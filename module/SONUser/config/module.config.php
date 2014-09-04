@@ -11,16 +11,32 @@ return array(
                     'route' => '/user',
                     'defaults' => array(
                         '__NAMESPACE__' => 'SONUser\Controller',
-                        'controller' => 'joaozinho\maria\index',
+                        'controller' => 'Index',
                         'action' => 'index',
                     ),
                 ),
             ),
+                  'sonuser-admin-interna' => array(
+                'type' => 'Segment',    
+                'options' => array(
+                    'route' => '/admin/[:controller[/][:action[/][:id[/]]]]',
+                    'defaults' => array(
+                        'controller' => 'user',
+                        'action' => 'index',
+                        ),
+                     'constraints' => array(
+                       'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'action' => '[a-zA-Z][a-zA-Z0-9 -]*',
+                         
+                    ) ,      
+                ),
+            ),   
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'joaozinho\maria\index' => 'SONUser\Controller\IndexController',
+            'index' => 'SONUser\Controller\IndexController',
+            'users' => 'SONUser\Controller\UsersController',
         ),
     ),
     'view_manager' => array(
@@ -39,7 +55,7 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
-     //Configuração do Doctrine
+    //Configuração do Doctrine
     'doctrine' => array(
         'driver' => array(
             __NAMESPACE__ . '_driver' => array(
@@ -50,8 +66,11 @@ return array(
             'orm_default' => array(
                 'drivers' => array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                )
-            )
-        )
-    )
+                ),
+            ),
+        ),
+    ),
+    'data-fixture' => array(
+        'SONUser_fixture' => __DIR__ . '/../SONUser/Fixture',
+    ),
 );
