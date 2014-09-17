@@ -5,6 +5,7 @@ namespace SONUser;
 use Zend\Mvc\ModuleRouteListener,
     Zend\Mvc\MvcEvent;
     
+use SONUser\Service\User as UserService;
 
 
 class Module{
@@ -24,6 +25,19 @@ class Module{
         );
     }
     
+    
+    public function getServiceConfig(){
+       
+        return array(
+            'factories'=>array(
+                'SONUser\Service\User'=> function($sm){
+                  $em = $sm->get('Doctrine\ORM\EntityManager');
+                 return new UserService($em);
+                }
+            )
+        );
+    }
+    
      public function onBootstrap($e)
 {
 $e->getApplication()->getEventManager()->getSharedManager()->attach('Zend\Mvc\Controller\AbstractController', 'dispatch', function($e) {
@@ -37,15 +51,7 @@ $controller->layout($config['module_layouts'][$moduleNamespace]);
 }, 100);
 }
 
-    public function getServiceConfig() {
-        return array(
-            'factories' => array(
-            
-                
-            
-            ),
-        );
-    }
+    
      
 
 

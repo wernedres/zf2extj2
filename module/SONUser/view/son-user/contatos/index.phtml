@@ -1,13 +1,14 @@
-<h3 class="alert alert-success">Usarios</h3>
+<h3 class="alert alert-success">Contatos</h3>
 <br/>
 
-<p> <a href="<?php echo $this->url('sonuser-admin',array('controller'=>'users','action'=>'new'));?>">Novo</a></p>
 
 <table class="table table-striped">
     <tr class="success">
         <th>Id</th>
         <th>Nome</th>
         <th>Email</th>
+        <th>Telefone</th>
+        <th>Endereco</th>
         <th>Editar</th>
         <th>Deletar</th>
     </tr>
@@ -17,6 +18,8 @@
             <td><?= $entity->getId() ?></td>
             <td><?= $entity->getNome() ?></td>
             <td><?= $entity->getEmail() ?></td>
+            <td><?= $entity->getTelefone() ?></td>
+            <td><?= $entity->getEndereco() ?></td>
             <td>
                editar
                 <td> 

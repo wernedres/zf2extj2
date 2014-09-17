@@ -6,22 +6,33 @@ return array(
     'router' => array(
         'routes' => array(
             'sonuser-home' => array(
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'options' => array(
-                    'route' => '/user',
+                    'route' => '/',
                     'defaults' => array(
                         '__NAMESPACE__' => 'SONUser\Controller',
-                        'controller' => 'Index',
+                        'controller' => 'users',
                         'action' => 'index',
                     ),
                 ),
             ),
-                  'sonuser-admin-interna' => array(
+           
+                'sonuser-admin' => array(
+                'type' => 'Segment',    
+                'options' => array(
+                    'route' => '/admin/[:controller[/:action]]',
+                    'defaults' => array(
+                        'action'=>'index',
+                        
+                    ),
+                ),
+            ),            
+                'sonuser-admin' => array(
                 'type' => 'Segment',    
                 'options' => array(
                     'route' => '/admin/[:controller[/][:action[/][:id[/]]]]',
                     'defaults' => array(
-                        'controller' => 'user',
+                        'controller' => 'users',
                         'action' => 'index',
                         ),
                      'constraints' => array(
@@ -35,8 +46,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'index' => 'SONUser\Controller\IndexController',
+            'Index' => 'SONUser\Controller\IndexController',
             'users' => 'SONUser\Controller\UsersController',
+            'contatos' => 'SONUser\Controller\ContatosController',
         ),
     ),
     'view_manager' => array(

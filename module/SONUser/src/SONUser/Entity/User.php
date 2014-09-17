@@ -68,6 +68,7 @@ class User {
      * @param mixed $email
      */
     public function __construct($options = null) {
+        date_default_timezone_set("America/Boa_Vista");
 //        Configurator::configure($this, $options);
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
         $this->createdAt = new \DateTime("now");
