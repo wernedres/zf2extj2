@@ -3,6 +3,7 @@
 namespace SONUser\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Stdlib\Hydrator\ClassMethods;
 
 /**
  * @ORM\Entity
@@ -156,6 +157,10 @@ class User {
     public function setActive($active) {
         $this->active = $active;
         return $this;
+    }
+    
+    public function toArray(){
+       return (new ClassMethods)->extract($this); 
     }
 
 }
