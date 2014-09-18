@@ -153,6 +153,12 @@ class User extends \SONUser\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         return parent::setActive($active);
     }
 
+    public function encryptPassword($password)
+    {
+        $this->__load();
+        return parent::encryptPassword($password);
+    }
+
     public function toArray()
     {
         $this->__load();

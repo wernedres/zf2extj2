@@ -41,13 +41,26 @@ return array(
                          
                     ) ,      
                 ),
-            ),   
+            ),
+            'sonuser-auth' => array(
+                'type' => 'literal',    
+                'options' => array(
+                    'route' => '/auth',
+                    'defaults' => array(
+                    '__NAMESPACE__' => 'SONUser\Controller',
+                     'controller'=>'auth',
+                        'action'=>'index',
+                        
+                    ),
+                ),
+            ),         
         ),
     ),
     'controllers' => array(
         'invokables' => array(
             'Index' => 'SONUser\Controller\IndexController',
             'users' => 'SONUser\Controller\UsersController',
+            'auth' => 'SONUser\Controller\AuthController',
             'contatos' => 'SONUser\Controller\ContatosController',
         ),
     ),

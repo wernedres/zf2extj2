@@ -11,8 +11,13 @@ class Adapter implements AdapterInterface {
     /**
      * @var EntityManager
      */
+    protected $em;
+    protected $username;
+    protected $password;
+
     public function __construct(EntityManager $em) {
         $this->em = $em;
+        $this->entity = 'SONUser\Entity\User';
     }
 
     public function setUsername($username) {
@@ -35,11 +40,11 @@ class Adapter implements AdapterInterface {
 
     public function authenticate() {
 
-        $repository = $this->em->getRepository("SONUser\Entity\User");
-        $user = $repository->findByEmailAndPassword($this->getUsername(),$this->getPassword());
+        $repository = $this->em->getRepository($this->entity);
+        $user = $repository->findByEmailAndPassword($this->getUsername(), $this->getPassword());
 
         if ($user) {
-            return new Result(Result::SUCCESS, array('user'=>$user), array('ok'));
+            return new Result(Result::SUCCESS, array('user' => $user), array('ok'));
         } else {
             return new Result(Result::FAILURE_CREDENTIAL_INVALID, null, array());
         }

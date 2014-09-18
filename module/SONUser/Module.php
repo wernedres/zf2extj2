@@ -33,6 +33,11 @@ class Module{
                 'SONUser\Service\User'=> function($sm){
                   $em = $sm->get('Doctrine\ORM\EntityManager');
                  return new UserService($em);
+                },
+              
+                'SONUser\Auth\Adapter'=> function($sm){
+                  $em = $sm->get('Doctrine\ORM\EntityManager');
+                 return new Auth\Adapter($em);
                 }
             )
         );

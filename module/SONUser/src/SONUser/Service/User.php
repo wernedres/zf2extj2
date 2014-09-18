@@ -23,7 +23,7 @@ class User {
 
 
         $entity = new UserEntity();
-        (new ClassMethods)->hydrate($data, $entity);
+        (new ClassMethods)->hydrate($data, $entity)->setActive(false);;
 
         $this->em->persist($entity);
         $this->em->flush();

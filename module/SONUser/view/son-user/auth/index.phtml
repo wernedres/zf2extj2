@@ -1,0 +1,28 @@
+ 
+
+<h3>Área de Acesso</h3>
+
+<br/>
+
+<?php if($this->error):?>
+<p><b>Usuário ou Senha não Confere</b></p>
+<?php endif;?>
+
+<?php 
+
+$form = $this->form;
+
+$form->setAttribute('action', $this->url( 'sonuser-auth'));
+
+
+$form->prepare();
+echo $this->form()->openTag($form); 
+echo $this->formRow($form->get('email'))."<br/>" ;
+echo $this->formRow($form->get('password'))."<br/>" ;
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+
+
+
+?>

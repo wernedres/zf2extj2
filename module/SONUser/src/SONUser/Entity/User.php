@@ -4,10 +4,12 @@ namespace SONUser\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Stdlib\Hydrator\ClassMethods;
+use Zend\Crypt\Key\Derivation\Pbkdf2;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
+  * @ORM\Entity(repositoryClass="SONUser\Entity\UserRepository")
 
  */
 class User {
@@ -110,7 +112,7 @@ class User {
     }
 
     public function setPassword($password) {
-        $this->password = $password;
+        $this->password = $this->encryptPassword($password);
         return $this;
     }
 
@@ -157,6 +159,19 @@ class User {
     public function setActive($active) {
         $this->active = $active;
         return $this;
+    }
+    
+     public function encryptPassword($password) {
+         
+   return base64_encode(
+           Pbkdf2::calc('sha256', $password ,$this->salt,10000,  strlen($password)*2)
+           
+           );
+ 
+//        for ($i = 0; $i < 64000; $i++)
+//            $hashSenha = hash('sha512', $hashSenha);
+
+        return $hashSenha;
     }
     
     public function toArray(){
