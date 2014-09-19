@@ -6,6 +6,7 @@ use Zend\Mvc\ModuleRouteListener,
     Zend\Mvc\MvcEvent;
     
 use SONUser\Service\User as UserService;
+use SONUser\Service\Contato as ContatoService;
 
 
 class Module{
@@ -38,7 +39,11 @@ class Module{
                 'SONUser\Auth\Adapter'=> function($sm){
                   $em = $sm->get('Doctrine\ORM\EntityManager');
                  return new Auth\Adapter($em);
-                }
+                },
+                'SONUser\Service\Contato'=> function($sm){
+                  $em = $sm->get('Doctrine\ORM\EntityManager');
+                 return new ContatoService($em);
+                },
             )
         );
     }

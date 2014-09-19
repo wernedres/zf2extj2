@@ -2,11 +2,11 @@
 
 namespace SONUser\Service;
 
-use SONUser\Entity\User as UserEntity;
+use SONUser\Entity\Contato as ContatoEntity;
 use Doctrine\ORM\EntityManager;
 use Zend\Stdlib\Hydrator\ClassMethods;
 
-class User {
+class Contato {
 
     /**
      *
@@ -16,14 +16,14 @@ class User {
 
     public function __construct(EntityManager $em) {
         $this->em = $em;
-        $this->entity = 'SONUser\Entity\User';
+        $this->entity = 'SONUser\Entity\Contato';
     }
 
     public function insert(array $data) {
 
 
-        $entity = new UserEntity();
-        (new ClassMethods)->hydrate($data, $entity)->setActive(true);;
+        $entity = new ContatoEntity();
+        (new ClassMethods)->hydrate($data, $entity);
 
         $this->em->persist($entity);
         $this->em->flush();

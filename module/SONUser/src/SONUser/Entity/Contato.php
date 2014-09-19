@@ -3,11 +3,11 @@
 namespace SONUser\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Zend\Stdlib\Hydrator\ClassMethods;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="contatos")
-
  */
 class Contato {
 
@@ -38,6 +38,15 @@ class Contato {
      * @ORM\Column(type="string")
      */
     protected $endereco;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $bairro;
+
+    public function __construct($options = null) {
+        
+    }
 
     public function getId() {
         return $this->id;
@@ -82,6 +91,19 @@ class Contato {
     public function setEndereco($endereco) {
         $this->endereco = $endereco;
         return $this;
+    }
+
+    function getBairro() {
+        return $this->bairro;
+    }
+
+    function setBairro($bairro) {
+        $this->bairro = $bairro;
+        return $this;
+    }
+
+    public function toArray() {
+        return (new ClassMethods)->extract($this);
     }
 
 }

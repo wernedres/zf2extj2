@@ -1,31 +1,33 @@
-<h3 class="alert alert-success">Usuarios</h3>
+<h3 class="alert alert-success">Lista de Usuarios</h3>
 <br/>
 
-<p> <a href="<?php echo $this->url('sonuser-admin',array('controller'=>'users','action'=>'new'));?>">Novo</a></p>
+<p> <a class="btn btn-sm btn-success glyphicon "     href="<?php echo $this->url('sonuser-admin', array('controller' => 'users', 'action' => 'new')); ?>">Novo</a></p>
 
 <table class="table table-striped">
     <tr class="success">
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Editar</th>
-        <th>Deletar</th>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Editar</th>
+    <th>Deletar</th>
+</tr>
+
+<?php foreach ($this->data as $entity): ?>
+    <tr>
+    <td><?= $entity->getId() ?></td>
+    <td><?= $entity->getNome() ?></td>
+    <td><?= $entity->getEmail() ?></td>
+    <td>
+        <a class="btn btn-info glyphicon glyphicon-list" href="<?php echo $this->url('sonuser-admin', array('controller' => 'users', 'action' => 'edit', 'id' => $entity->getId()));
+    ?>">Editar</a></td>
+
+
+    <td>
+        <a class="btn btn-danger  glyphicon glyphicon-trash" href="<?php echo $this->url('sonuser-admin', array('controller' => 'users', 'action' => 'delete', 'id' => $entity->getId()));
+    ?>">Excluir</a></td>
+
     </tr>
 
-    <?php foreach ($this->data as $entity): ?>
-        <tr>
-            <td><?= $entity->getId() ?></td>
-            <td><?= $entity->getNome() ?></td>
-            <td><?= $entity->getEmail() ?></td>
-            <td>
-              <a href="<?php echo $this->url('sonuser-admin',array('controller' => 'users', 'action' => 'edit', 'id' => $entity->getId()));
-    ?>">Editar</a></td>
-            <td>
-              <a href="<?php echo $this->url('sonuser-admin',array('controller' => 'users', 'action' => 'delete', 'id' => $entity->getId()));
-    ?>">Excluit</a></td>
-           
-        </tr>
-        
-    <?php endforeach; ?>
+<?php endforeach; ?>
 
 </table>

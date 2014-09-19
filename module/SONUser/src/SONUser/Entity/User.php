@@ -4,6 +4,8 @@ namespace SONUser\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Stdlib\Hydrator\ClassMethods;
+
+
 use Zend\Crypt\Key\Derivation\Pbkdf2;
 
 /**
