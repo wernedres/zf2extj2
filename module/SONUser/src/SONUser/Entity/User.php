@@ -68,6 +68,11 @@ class User {
      * @ORM\Column(type="datetime", name="updated_at")
      */
     protected $updatedAt;
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $administrador;
+    
 
     /**
      * @param mixed $email
@@ -160,6 +165,14 @@ class User {
 
     public function setActive($active) {
         $this->active = $active;
+        return $this;
+    }
+    public function getAdministrador() {
+        return $this->administrador;
+    }
+
+    public function setAdministrador($administrador) {
+        $this->administrador = $administrador;
         return $this;
     }
     

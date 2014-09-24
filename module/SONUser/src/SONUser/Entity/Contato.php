@@ -44,9 +44,9 @@ class Contato {
      */
     protected $bairro;
 
-    public function __construct($options = null) {
-        
-    }
+//    public function __construct($options = null) {
+//        
+//    }
 
     public function getId() {
         return $this->id;

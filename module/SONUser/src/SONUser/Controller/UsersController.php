@@ -40,6 +40,7 @@ class UsersController extends AbstractActionController {
 
         if ($request->isPost()) {
             $form->setData($request->getPost());
+            
             if ($form->isValid()) {
                 $data = $form->getData();
 

@@ -62,6 +62,9 @@ return array(
             'users' => 'SONUser\Controller\UsersController',
             'auth' => 'SONUser\Controller\AuthController',
             'contatos' => 'SONUser\Controller\ContatosController',
+            'setores' => 'SONUser\Controller\SetoresController',
+            'categorias' => 'SONUser\Controller\CategoriasController',
+            'produtos' => 'SONUser\Controller\ProdutoController',
         ),
     ),
     'view_manager' => array(
