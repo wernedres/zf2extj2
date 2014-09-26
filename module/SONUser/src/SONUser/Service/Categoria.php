@@ -18,6 +18,17 @@ class Categoria {
         $this->em = $em;
         $this->entity = 'SONUser\Entity\Categoria';
     }
+    
+    
+      public function insert(array $data) {
+        $entity = new CategoriaEntity();
+        (new ClassMethods)->hydrate($data, $entity);
+
+        $this->em->persist($entity);
+        $this->em->flush();
+        return $entity;
+    }
+
 
     public function delete($id) {
         $entity = $this->em->getReference($this->entity, $id);

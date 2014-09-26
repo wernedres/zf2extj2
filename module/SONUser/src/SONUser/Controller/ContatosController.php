@@ -19,7 +19,7 @@ class ContatosController extends AbstractActionController {
 
     public function __construct() {
 
-//        $this->form = new ContatoForm();
+   $this->form = new ContatoForm();
         $this->gr = 'SONUser\Entity\Contato';
         $this->sl= 'SONUser\Service\Contato';
     }

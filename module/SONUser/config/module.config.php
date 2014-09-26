@@ -102,3 +102,38 @@ return array(
         'SONUser_fixture' => __DIR__ . '/../SONUser/Fixture',
     ),
 );
+
+return array(
+    'view_helpers' => array(
+        'invokables' => array(
+            //Alert
+            'alert' => 'SONUser\View\Helper\TwbBundleAlert',
+            //Badge
+            'badge' => 'SONUser\View\Helper\TwbBundleBadge',
+            //Button group
+            'buttonGroup' => 'SONUser\View\Helper\TwbBundleButtonGroup',
+            //DropDown
+            'dropDown' => 'SONUser\View\Helper\TwbBundleDropDown',
+            //Form
+            'form' => 'SONUser\Form\View\Helper\TwbBundleForm',
+            'formButton' => 'SONUser\Form\View\Helper\TwbBundleFormButton',
+            'formCheckbox' => 'SONUser\Form\View\Helper\TwbBundleFormCheckbox',
+            'formCollection' => 'SONUser\Form\View\Helper\TwbBundleFormCollection',
+            'formElement' => 'SONUser\Form\View\Helper\TwbBundleFormElement',
+            'formElementErrors' => 'SONUser\Form\View\Helper\TwbBundleFormElementErrors',
+            'formMultiCheckbox' => 'SONUser\Form\View\Helper\TwbBundleFormMultiCheckbox',
+            'formRadio' => 'SONUser\Form\View\Helper\TwbBundleFormRadio',
+            'formRow' => 'SONUser\Form\View\Helper\TwbBundleFormRow',
+            'formStatic' => 'SONUser\Form\View\Helper\TwbBundleFormStatic',
+            //Form Errors
+            'formErrors' => 'SONUser\Form\View\Helper\TwbBundleFormErrors',
+            //Glyphicon
+            'glyphicon' => 'SONUser\View\Helper\TwbBundleGlyphicon',
+            //FontAwesome
+            'fontAwesome' => 'SONUser\View\Helper\TwbBundleFontAwesome',
+            //Label
+            'label' => 'SONUser\View\Helper\TwbBundleLabel'
+        )
+    )
+);
+

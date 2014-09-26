@@ -51,12 +51,6 @@ class User extends \SONUser\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         return parent::getId();
     }
 
-    public function setId($id)
-    {
-        $this->__load();
-        return parent::setId($id);
-    }
-
     public function getNome()
     {
         $this->__load();

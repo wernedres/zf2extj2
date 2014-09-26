@@ -2,16 +2,16 @@
 
 namespace SONUser\Entity;
 
+
+
 use Doctrine\ORM\Mapping as ORM;
 use Zend\Stdlib\Hydrator\ClassMethods;
-
-
 use Zend\Crypt\Key\Derivation\Pbkdf2;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
-  * @ORM\Entity(repositoryClass="SONUser\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="SONUser\Entity\UserRepository")
 
  */
 class User {
@@ -39,7 +39,7 @@ class User {
      */
     protected $password;
 
-     /**
+    /**
      * @ORM\Column(type="string")
      */
     protected $salt;
@@ -68,11 +68,11 @@ class User {
      * @ORM\Column(type="datetime", name="updated_at")
      */
     protected $updatedAt;
+
     /**
      * @ORM\Column(type="boolean")
      */
     protected $administrador;
-    
 
     /**
      * @param mixed $email
@@ -89,11 +89,6 @@ class User {
 
     public function getId() {
         return $this->id;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
-        return $this;
     }
 
     public function getNome() {
@@ -167,6 +162,7 @@ class User {
         $this->active = $active;
         return $this;
     }
+
     public function getAdministrador() {
         return $this->administrador;
     }
@@ -175,22 +171,21 @@ class User {
         $this->administrador = $administrador;
         return $this;
     }
-    
-     public function encryptPassword($password) {
-         
-   return base64_encode(
-           Pbkdf2::calc('sha256', $password ,$this->salt,10000,  strlen($password)*2)
-           
-           );
- 
+
+    public function encryptPassword($password) {
+
+        return base64_encode(
+                Pbkdf2::calc('sha256', $password, $this->salt, 10000, strlen($password) * 2)
+        );
+
 //        for ($i = 0; $i < 64000; $i++)
 //            $hashSenha = hash('sha512', $hashSenha);
 
         return $hashSenha;
     }
-    
-    public function toArray(){
-       return (new ClassMethods)->extract($this); 
+
+    public function toArray() {
+        return (new ClassMethods)->extract($this);
     }
 
 }

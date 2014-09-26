@@ -21,8 +21,8 @@ class Setor {
        public function insert(array $data) {
 
 
-        $entity = new UserEntity();
-        (new ClassMethods)->hydrate($data, $entity)->setActive(true);;
+        $entity = new SetorEntity();
+        (new ClassMethods)->hydrate($data, $entity);
 
         $this->em->persist($entity);
         $this->em->flush();

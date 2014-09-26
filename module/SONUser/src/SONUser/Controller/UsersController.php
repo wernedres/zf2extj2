@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use SONUser\Form\User as UserForm;
 use SONUser\Form\UserFilter;
-use SONUser\Entity\User as UserEntity;
+//use SONUser\Entity\User as UserEntity;
 
 class UsersController extends AbstractActionController {
 
@@ -20,13 +20,13 @@ class UsersController extends AbstractActionController {
 
     public function __construct() {
         $this->form = new UserForm();
+        $this->doe = 'Doctrine\ORM\EntityManager';
+        
     }
 
     public function indexAction() {
 
-        $list = $this->getEm()->getRepository('SONUser\Entity\User')
-                ->findAll();
-
+        $list = $this->getEm()->getRepository('SONUser\Entity\User')->findAll();
         return new ViewModel(array('data' => $list));
     }
 
@@ -100,7 +100,7 @@ class UsersController extends AbstractActionController {
      * @return array \Doctrine\ORM\EntityManager
      */
     private function getEm() {
-        return $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        return $this->getServiceLocator()->get(  $this->doe);
     }
 
 }

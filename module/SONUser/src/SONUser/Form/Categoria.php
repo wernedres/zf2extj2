@@ -5,11 +5,11 @@ namespace SONUser\Form;
 use Zend\Form\Form;
 
 
-class Setor extends Form {
+class Categoria extends Form {
 
 public function __construct($name = null) {
     
-        parent::__construct('setor');
+        parent::__construct('contato');
 
         $this->setAttribute('method', 'post');
     
@@ -19,10 +19,10 @@ public function __construct($name = null) {
 
         $nome = new \Zend\Form\Element\Text('nome');
         $nome->setLabel("Nome:");
-        $nome->setAttribute("class", "form-control");
+        $nome->setAttribute("classglyphicon glyphicon-user", "form-control");
         $this->add($nome);
 
-     
+
 //        $csrf = new \Zend\Form\Element(\Csrf("security"));
 //        $this->add($csrf);
 
