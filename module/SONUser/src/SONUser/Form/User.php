@@ -35,9 +35,9 @@ class User extends Form {
 
 
 //        // criando o campo administrador
-//        $administrador = new \Zend\Form\Element\Checkbox('administrador');
-//        $administrador->setLabel('Administrador')->setValue(1);
-//        $this->add($administrador);
+        $administrador = new \Zend\Form\Element\Checkbox('administrador');
+        $administrador->setLabel('Administrador')->setValue(1);
+        $this->add($administrador);
 
 //        $csrf = new \Zend\Form\Element(\Csrf("security"));
 //        $this->add($csrf);
